@@ -26,7 +26,7 @@ async def start_func(bot:Bot):
 
         await message.answer('Выбирай орел или решка!')
 
-        @bot.on.message(text = ['орел', 'решка'])
+        @bot.on.message(text = ['орел', 'решка', 'Орел', 'Решка'])
         async def orel_and_rehska_answer(message:Message):
             text = message.text.lower()
             choice = random.choice(spisok)
