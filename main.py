@@ -3,7 +3,6 @@ import os
 from dotenv import load_dotenv
 import ssl
 import aiohttp
-
 from vkbottle import Bot, API, AiohttpClient
 from handlers import start, echo
 
@@ -24,7 +23,7 @@ async def main():
     bot = Bot(api=api)
 
     await start.start_func(bot)
-    await echo.echo_func(bot)
+    # await echo.echo_func(bot)
 
     await bot.run_polling()
 
