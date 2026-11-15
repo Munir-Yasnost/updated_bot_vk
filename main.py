@@ -22,7 +22,7 @@ async def main():
     print("Генератор токена:", type(api.token_generator).__name__)
     bot = Bot(api=api)
 
-    await task.task(bot)
+    await atach.atach_func(bot)
     # await echo.echo_func(bot)
 
     await bot.run_polling()

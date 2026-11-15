@@ -20,9 +20,9 @@ async def atach_func(bot:Bot):
 
             elif attachment.type == 'sticker':
 
-                await message.answer('Это документ')
+                await message.answer('Это стикер')
 
             elif attachment.type == 'doc':
 
-                await message.answer('Это стикер')
+                await message.answer('Это документ')
 
