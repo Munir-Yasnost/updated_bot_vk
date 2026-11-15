@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 import ssl
 import aiohttp
 from vkbottle import Bot, API, AiohttpClient
-from handlers import start, echo
+from handlers import start, echo, atach, task
 
 async def main():
     load_dotenv()
@@ -22,7 +22,7 @@ async def main():
     print("Генератор токена:", type(api.token_generator).__name__)
     bot = Bot(api=api)
 
-    await start.start_func(bot)
+    await task.task(bot)
     # await echo.echo_func(bot)
 
     await bot.run_polling()
