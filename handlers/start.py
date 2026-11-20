@@ -7,11 +7,10 @@ from vkbottle import Bot
 from vkbottle.bot import Message
 import random
 
-spisok = ['орел', 'решка']
 
 async def start_func(bot:Bot):
 
-    @bot.on.message(text = 'start')
+    @bot.on.message(text = ['start', 'привет', 'Привет'])
     async def start_hendler(message:Message):
 
         user_id = message.from_id
@@ -19,22 +18,5 @@ async def start_func(bot:Bot):
         first_name = user[0].first_name
 
         await message.answer(f'Привет {first_name}!')
-        await message.answer('Хочешь сыграть орел и решка? Если хочешь напиши "Играть" ')
-
-    @bot.on.message(text = ['Играть', 'играть'])
-    async def orel_and_rehska(message:Message):
-
-        await message.answer('Выбирай орел или решка!')
-
-        @bot.on.message(text = ['орел', 'решка', 'Орел', 'Решка'])
-        async def orel_and_rehska_answer(message:Message):
-            text = message.text.lower()
-            choice = random.choice(spisok)
-
-            if text == choice:
-                await message.answer(f'Правильно, я загадал: {choice}')
-
-            elif text != choice:
-                await message.answer(f'Неправильно, я загадал: {choice}')
 
 

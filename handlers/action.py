@@ -2,6 +2,8 @@ from vkbottle.bot import Message
 
 
 def action_func(bot):
+
+    
     @bot.on.message(action = 'chat_invite_user')
     async def invite_user(message:Message):
 
@@ -14,7 +16,12 @@ def action_func(bot):
 
     @bot.on.message(action = 'chat_kick_user')
     async def kick_user(message:Message):
-        await message.answer('Пока пока! 👋')
+
+        user_id = message.action.member_id
+        users = await message.ctx_api.users.get(user_ids = user_id)
+        user = users[0]
+
+        await message.answer(f'Пока {user.first_name}! 👋')
 
 
     @bot.on.message(action = 'chat_title_update')

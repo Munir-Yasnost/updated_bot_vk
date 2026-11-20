@@ -5,7 +5,7 @@ import aiohttp
 
 from dotenv import load_dotenv
 from vkbottle import Bot, AiohttpClient
-from handlers import start, atach, action
+from handlers import start, atach, action, games
 
 
 load_dotenv()
@@ -28,7 +28,7 @@ async def main():
     bot.api.http_client = http_client
 
     await start.start_func(bot)
-    await atach.atach_func(bot)
+    await games.game_func(bot)
     action.action_func(bot)
 
     await bot.run_polling()
